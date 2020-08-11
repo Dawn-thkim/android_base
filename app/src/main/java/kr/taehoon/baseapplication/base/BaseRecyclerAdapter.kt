@@ -8,16 +8,24 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.extensions.LayoutContainer
 
-
+/**
+ * @param <Item> RecyclerView에 표시될 List의 Parameterized Type
+ * @param <VD> ViewHolder의 ViewDataBinding Type
+ */
 abstract class BaseRecyclerAdapter<ITEM : Any?, VD : ViewDataBinding> :
-    RecyclerView.Adapter<BaseViewHolder>() {
+    RecyclerView.Adapter<BaseViewHolder<ITEM>>() {
 
     abstract val layoutResourceId: Int
     abstract val context: Context
     var mData: MutableList<ITEM> = mutableListOf()
 
-    abstract fun onCreateCoreViewHolder(binding: VD, viewType: Int): BaseViewHolder
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
+    /**
+     * @param binding ViewDataBinding Instance
+     * @param viewType ViewType
+     */
+    abstract fun onCreateCoreViewHolder(binding: VD, viewType: Int): BaseViewHolder<ITEM>
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<ITEM> {
 
         return LayoutInflater.from(parent.context).let {
             DataBindingUtil.inflate<VD>(it, layoutResourceId, parent, false)
@@ -29,7 +37,7 @@ abstract class BaseRecyclerAdapter<ITEM : Any?, VD : ViewDataBinding> :
         }
     }
 
-    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BaseViewHolder<ITEM>, position: Int) {
         if (mData.size > position)
             holder.bind(mData[position], position)
         else
@@ -46,12 +54,15 @@ abstract class BaseRecyclerAdapter<ITEM : Any?, VD : ViewDataBinding> :
     }
 }
 
-
-abstract class BaseViewHolder(override val containerView: View) :
+/**
+ * @param <T> ViewHolder의 bind Item Type
+ * @param containerView ViewHolder View Instance
+ */
+abstract class BaseViewHolder<T:Any?>(override val containerView: View) :
     RecyclerView.ViewHolder(containerView),
     LayoutContainer {
     abstract val binding: ViewDataBinding
-    open fun bind(itemData: Any?, position: Int) {
+    open fun bind(itemData: T?, position: Int) {
         //공용 작성
     }
 }

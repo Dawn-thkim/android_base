@@ -11,14 +11,14 @@ class MainRecyclerAdapter(override val context: Context) :
         get() = R.layout.item_main
 
 
-    override fun onCreateCoreViewHolder(binding: ItemMainBinding, viewType: Int): BaseViewHolder {
+    override fun onCreateCoreViewHolder(binding: ItemMainBinding, viewType: Int): BaseViewHolder<String> {
         return MainViewHolder(binding)
     }
 
-    inner class MainViewHolder(override val binding: ItemMainBinding) : BaseViewHolder(binding.root) {
-        override fun bind(itemData: Any?, position: Int) {
+    inner class MainViewHolder(override val binding: ItemMainBinding) : BaseViewHolder<String>(binding.root) {
+        override fun bind(itemData: String?, position: Int) {
             super.bind(itemData, position)
-            (itemData as? String)?.let {
+            itemData?.let {
                 binding.test = it
             }
         }

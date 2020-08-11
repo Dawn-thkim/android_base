@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import io.reactivex.disposables.CompositeDisposable
+import kr.taehoon.baseapplication.BR
 
 abstract class BaseFragment<T: ViewDataBinding> : Fragment(){
     lateinit var viewDataBinding: T
@@ -21,7 +22,7 @@ abstract class BaseFragment<T: ViewDataBinding> : Fragment(){
     ): View? {
         viewDataBinding = DataBindingUtil.inflate(inflater, layoutResId , container, false)
         viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
-        viewDataBinding.setVariable(BBR.fragment,this)
+        viewDataBinding.setVariable(BR.fragment,this)
         initOnCreatedView()
         return viewDataBinding.root
     }
@@ -40,8 +41,9 @@ abstract class BaseFragment<T: ViewDataBinding> : Fragment(){
         compositeDisposable.dispose()
         super.onDestroy()
     }
-
+    //onCreateView에서 실행되어야 할 작업
     abstract fun initOnCreatedView()
+    //onViewCreated에서 실행되어야 할 작업
     abstract fun initOnViewCreated()
 
 }
