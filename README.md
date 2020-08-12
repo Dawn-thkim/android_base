@@ -11,7 +11,7 @@
 
 # 2. Class 설명
 
-- ## [BaseActivity](https://github.com/Hulrara/android_base/blob/master/app/src/main/java/kr/taehoon/baseapplication/base/BaseActivity.kt)
+- ## [BaseActivity](https://github.com/thkim-dawn/android_base/blob/master/app/src/main/java/kr/taehoon/baseapplication/base/BaseActivity.kt)
 
 
   ```kotlin
@@ -27,7 +27,7 @@
   > 구현 Class에서 **layoutResourceId** 에 해당 Activity의 LayoutResId을 입력하고, **initAfterBinding()** 함수에 View가 Binding된 이후 수행해야 될 작업을 기입한다.
   > **setObserver()** 함수는 ViewModel의 LiveData 또는 ReactiveX의 Observer를 구현한다.
 
-- ## [BaseFragment](https://github.com/Hulrara/android_base/blob/master/app/src/main/java/kr/taehoon/baseapplication/base/BaseFragment.kt)
+- ## [BaseFragment](https://github.com/thkim-dawn/android_base/blob/master/app/src/main/java/kr/taehoon/baseapplication/base/BaseFragment.kt)
 
   ```kotlin
   abstract class BaseFragment<T: ViewDataBinding> : Fragment(){
@@ -42,7 +42,7 @@
 
   
 
-- ## [BaseViewModel](https://github.com/Hulrara/android_base/blob/master/app/src/main/java/kr/taehoon/baseapplication/base/BaseViewModel.kt)
+- ## [BaseViewModel](https://github.com/thkim-dawn/android_base/blob/master/app/src/main/java/kr/taehoon/baseapplication/base/BaseViewModel.kt)
 
   ```kotlin
   abstract class BaseViewModel : ViewModel()
@@ -53,7 +53,7 @@
 
   
 
-- ## [BaseRecyclerAdpater](https://github.com/Hulrara/android_base/blob/master/app/src/main/java/kr/taehoon/baseapplication/base/BaseRecyclerAdapter.kt)
+- ## [BaseRecyclerAdpater](https://github.com/thkim-dawn/android_base/blob/master/app/src/main/java/kr/taehoon/baseapplication/base/BaseRecyclerAdapter.kt)
 
   ```kotlin
   abstract class BaseRecyclerAdapter<ITEM : Any?, VD : ViewDataBinding>{
@@ -69,7 +69,7 @@
 
   
 
-- ## [BaseViewHolder](https://github.com/Hulrara/android_base/blob/master/app/src/main/java/kr/taehoon/baseapplication/base/BaseViewHolder.kt)
+- ## [BaseViewHolder](https://github.com/thkim-dawn/android_base/blob/master/app/src/main/java/kr/taehoon/baseapplication/base/BaseViewHolder.kt)
 
   ```kotlin
   abstract class BaseViewHolder<T:Any?>(override val containerView: View) :RecyclerView.ViewHolder(containerView),LayoutContainer {
@@ -78,7 +78,7 @@
   }
   ```
 
-- ## [BaseViewHolder](https://github.com/Hulrara/android_base/blob/master/app/src/main/java/kr/taehoon/baseapplication/base/BaseViewHolder.kt)
+- ## [BaseViewHolder](https://github.com/thkim-dawn/android_base/blob/master/app/src/main/java/kr/taehoon/baseapplication/base/BaseViewHolder.kt)
 
   ```kotlin
   abstract class BaseViewHolder<T:Any?>(override val containerView: View) :RecyclerView.ViewHolder(containerView),LayoutContainer {
@@ -91,8 +91,8 @@
   > ViewHolder에 Binding될 Data의 Type -> **Generic T**
   > 구현 class에서 **bind()** 함수에 구현
 
-- ## [AppModule.kt](https://github.com/Hulrara/android_base/blob/master/app/src/main/java/kr/taehoon/baseapplication/util/AppModule.kt)
+- ## [AppModule.kt](https://github.com/thkim-dawn/android_base/blob/master/app/src/main/java/kr/taehoon/baseapplication/util/AppModule.kt)
   > Koin 라이브러리를 사용하여 DI Module 구현
 
-- ## [BindingAdapterUtil](https://github.com/Hulrara/android_base/blob/master/app/src/main/java/kr/taehoon/baseapplication/util/BindingAdapterUtil.kt)
+- ## [BindingAdapterUtil](https://github.com/thkim-dawn/android_base/blob/master/app/src/main/java/kr/taehoon/baseapplication/util/BindingAdapterUtil.kt)
   > BindingAdapter를 활용하여 View의 Custom 속성 구현
