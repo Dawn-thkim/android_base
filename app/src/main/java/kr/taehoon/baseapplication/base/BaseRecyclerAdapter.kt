@@ -16,7 +16,6 @@ abstract class BaseRecyclerAdapter<ITEM : Any?, VD : ViewDataBinding> :
     RecyclerView.Adapter<BaseViewHolder<ITEM>>() {
 
     abstract val layoutResourceId: Int
-    abstract val context: Context
     var mData: MutableList<ITEM> = mutableListOf()
 
     /**
@@ -62,8 +61,7 @@ abstract class BaseViewHolder<T:Any?>(override val containerView: View) :
     RecyclerView.ViewHolder(containerView),
     LayoutContainer {
     abstract val binding: ViewDataBinding
-    open fun bind(itemData: T?, position: Int) {
-        //공용 작성
-    }
+    //기존 open 함수는 공용 기능이 있을 경우, 구현
+    abstract fun bind(itemData: T?, position: Int)
 }
 

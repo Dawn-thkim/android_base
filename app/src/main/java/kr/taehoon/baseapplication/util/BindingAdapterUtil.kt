@@ -1,4 +1,4 @@
-package kr.taehoon.baseapplication.base
+package kr.taehoon.baseapplication.util
 
 import android.graphics.drawable.Drawable
 import android.view.View
@@ -11,6 +11,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
+import kr.taehoon.baseapplication.base.BaseRecyclerAdapter
 import java.text.SimpleDateFormat
 import java.util.*
 
